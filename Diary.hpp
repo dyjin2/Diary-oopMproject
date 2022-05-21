@@ -1,24 +1,28 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <ctime>
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 class Diary
 {
 private:
-    string firstedit;       //creat time, filename=firstedit
-    string lastedit;        //last edit time
-    string name;            //set by user
-    string text;            //diary
+    int firstedit;       //creat time, eg.1653109452
+    int lastedit;        //last edit time
+    string name;            //set by user, eg.diary1
+    string text;            //content
+    string filename;        //1653109452.txt
 public:
     Diary();           //new diary, firstedit
-    Diary(string filename);     //open exist diary
-    ~Diary();
-    string getfirstedit();  //return creat time for sort?
-    string getlastedit ();  //return last edit time for sort?
-    void setname();
+    Diary(int fname);     //open exist diary, fname=firstedit
+    ~Diary(){}
+    int getfirstedit();  //return creat time for sort?
+    int getlastedit();  //return last edit time for sort?
+    void setname(string str);
     string getname();   //return name for display
     void display();     //when open
-    void receive();    //update text from 输入框
     void save();   //update lastedit, save all the private info to filename.txt
+    void deletefile();
 };
