@@ -17,6 +17,7 @@ public:
     void savediary(int fname);    //when close a diary, update filelist
     void deletediary(int fname);      //update filelist
     void savelist();    //save filelist to list.txt
+    void getlist();
 };
 
 Manager::Manager()
@@ -27,7 +28,7 @@ Manager::Manager()
     int fname;
     while (inFile >> fname) {
         inFile >> filelist[fname];
-        cout << fname << ' ' << filelist[fname] << endl;
+        // cout << fname << ' ' << filelist[fname] << endl;
         //Manage.filelist 初始化
     }
     inFile.close();
@@ -41,11 +42,11 @@ void Manager::newdiary()
 }
 void Manager::editdiary(int fname)
 {
-    //call Diary function to display diary
+    //call Diary function to **display** diary
 }
 void Manager::savediary(int fname)
 {
-    //call Diary function to save txt file 
+    //call Diary function to **save** txt file 
 }
 void Manager::deletediary(int fname)
 {
@@ -54,7 +55,7 @@ void Manager::deletediary(int fname)
     {
         filelist.erase(key);
     }
-    //call diary to delete file
+    //call diary to **delete** file
 }
 void Manager::savelist()
 {
@@ -67,15 +68,26 @@ void Manager::savelist()
         listFile << f.first << ' ' << f.second << endl;
     }    
 }
+void Manager::getlist()
+{
+    int count=0;
+    for (auto item:filelist)
+    {
+        count++;
+        cout << count << " " << item.first << " " << item.second << endl;
+    }
+    
+}
 
 int main()
 {
     //test
     Manager manager;
-    manager.newdiary();
-    int del=1653121532;
-    manager.deletediary(del);
-    manager.savelist();
+    // manager.newdiary();
+    // int del=1653121532;
+    // manager.deletediary(del);
+    // manager.savelist();
+    manager.getlist();
 
     cout << "success" << endl;
     return 0;

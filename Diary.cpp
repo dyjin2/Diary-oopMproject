@@ -52,7 +52,6 @@ Diary::Diary(int fname)
         destFile << name << endl;
         destFile.close();
     }
-    
 }
 void Diary::display()
 {
@@ -89,9 +88,17 @@ void Diary::save()
     }
     destFile.close();
 }
-void deletefile()
+void Diary::deletefile()
 {
-    //delete txt file
+    string delename = "log\\"+ filename;
+    if(remove(delename.c_str())==0)
+    {
+        cout<<"delete success"<<endl;
+    }
+    else
+    {
+        cout<<"delete error"<<endl;
+    }
 }
 int Diary::getfirstedit()
 {
