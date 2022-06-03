@@ -3,6 +3,7 @@
 #include <fstream>
 #include <map>
 #include <ctime>
+#include "Diary.hpp"
 using namespace std;
 
 class Manager
@@ -37,16 +38,18 @@ void Manager::newdiary()
 {
     time_t now = time(0);
     int fname = int(now);
-    //call Diary function to save a empty txt file
+    Diary nd(fname);
     filelist[fname] = to_string(fname);
 }
 void Manager::editdiary(int fname)
 {
-    //call Diary function to **display** diary
+    Diary nd(fname);
+    nd.display();
 }
 void Manager::savediary(int fname)
 {
-    //call Diary function to **save** txt file 
+    Diary nd(fname);
+    nd.save();
 }
 void Manager::deletediary(int fname)
 {
@@ -55,7 +58,8 @@ void Manager::deletediary(int fname)
     {
         filelist.erase(key);
     }
-    //call diary to **delete** file
+    Diary nd(fname);
+    nd.deletefile();
 }
 void Manager::savelist()
 {
