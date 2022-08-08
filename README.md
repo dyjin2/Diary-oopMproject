@@ -1,2 +1,2 @@
 # Diary-oopMproject
-2022oop-zjuwk课程作业-日记本
+Your can simple download this branch and run the backendtest.cpp to get a Diary without UI.
